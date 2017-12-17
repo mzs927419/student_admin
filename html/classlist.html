@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>同学录</title>
+    <meta name="description" content="同学录">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <script src="assets/js/echarts.min.js"></script>
+    <link rel="stylesheet" href="assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="assets/css/amazeui.datatables.min.css" />
+    <link rel="stylesheet" href="assets/css/app.css">
+    <script src="assets/js/jquery.min.js"></script>
+	<style>
+		.scrollspy-nav {
+			top: 0;
+			z-index: 100;
+			background: #0e90d2;
+			width: 100%;
+			padding: 0 10px;
+		}
+		
+		.scrollspy-nav ul {
+			margin: 0;
+			padding: 0;
+		}
+		
+		.scrollspy-nav li {
+			display: inline-block;
+			list-style: none;
+		}
+		
+		.scrollspy-nav a {
+			color: #eee;
+			padding: 10px 20px;
+			display: inline-block;
+		}
+		
+		.scrollspy-nav a.am-active {
+			color: #fff;
+			font-weight: bold;
+		}
+		
+		.am-panel {
+			margin-top: 20px;
+		}
+	</style>
+</head>
+
+<body data-type="widgets">
+    <script src="assets/js/theme.js"></script>
+    <div class="am-g tpl-g">
+        <!-- 内容区域 -->
+        <div class="tpl-am-model-bd">
+            <div class="row-content am-cf">
+                <div class="row">
+                    <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+                        <div class="widget am-cf">
+							<nav class="scrollspy-nav" data-am-scrollspynav="{offsetTop: 45}" data-am-sticky>
+							  <ul> 
+							  	<!--<li>-->
+									<!-- 按钮触发器， 需要指定 target -->
+									<!--<button class="am-btn am-btn-primary" data-am-offcanvas="{target: '#doc-oc-demo2', effect: 'push'}" >班级成员</button>-->
+								
+									<!-- 侧边栏内容 -->
+									<!--<div id="doc-oc-demo2" class="am-offcanvas">
+										<div class="am-offcanvas-bar">
+											<div class="am-offcanvas-content">
+												<button type="button" class="am-btn am-btn-default am-radius" style="padding: 8px 110px 8px 80px ;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A</button>
+												<a>a小明</a>
+												<a>a小明</a>
+												<a>a小明</a>
+												<button type="button" class="am-btn am-btn-default am-radius" style="padding: 8px 110px 8px 80px ;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;B</button>
+												<a>b小明</a>
+												<a>b小明</a>
+												<a>b小明</a>
+											</div>
+										</div>
+									</div>-->
+								<!--</li>-->
+							    <li><a href="#about">班级介绍</a></li>
+							    <li><a href="#second">活动照片</a></li>
+							    <li><a href="#team">联系方式</a></li>
+							 
+							   
+							  </ul>
+							</nav>
+
+<div class="am-panel am-panel-default" id="about">
+  <div class="am-panel-hd">班级介绍</div>
+  <div class="am-panel-bd">
+    <p>相逢于那个拼杀的黑色六月之后，在一万次梦里的憧憬之后——如此珍贵，如此难得。</p>
+    	<p>怀着渐渐成熟的生命里缤纷的梦想，怀着敢闯敢拼的青春里倔强的执着——如此坚定，如此不悔。</p>  
+    	<p>四十颗笑脸，热情洋溢，绮丽的季节里盛开出灿烂与光华；四十声呼喊，充满力度，恬淡的天空里犹如春雷声声，轰轰隆隆。</p>  
+    <p>	在导员老师的谆谆教诲和耐心指导下，同学们学习上认真刻苦，活动中积极踊跃，并取得了一定的成绩。</p>  
+    	<p>英语课上犹如置身异国，古汉现汉发言字字珠玑，论文写作总有文采华章，专业翻译之时精彩不断，比赛设计过程创意纷飞。</p>  
+    <P>	精神抖擞，运动会上舍我其谁；千机万辩，辩论场上魅力无限；挥洒青春，篮球比赛我来过，就无悔；舞步飞旋，国标舞大赛里轻舞飞扬的何止在此，还有那一颗颗活力的心，在灯光与掌声中化作流云。</P>  
+    <p>	这就是我们，团结奋进、朝气蓬勃、温暖和谐。广结良友，告别肤浅，青春的画布展开，我们挥笔成彩，这是我们梦开始的地方。</p>
+    <span>编辑：<a>明明子</a> | 最近上传于：2017-11-11</span>
+  </div>
+</div>
+
+<div class="am-panel am-panel-default" id="second">
+  <div class="am-panel-hd">活动照片</div>
+  <div class="am-panel-bd">
+     <ul data-am-widget="gallery" class="am-gallery am-avg-sm-3
+  am-avg-md-3 am-avg-lg-4 am-gallery-default am-gallery-bordered" data-am-gallery="{ pureview: true }" >
+      <li>
+        <div class="am-gallery-item">
+            <a href="http://s.amazeui.org/media/i/demos/bing-1.jpg" class="">
+              <img src="http://s.amazeui.org/media/i/demos/bing-1.jpg"  alt="远方 有一个地方 那里种有我们的梦想"/>
+                <h3 class="am-gallery-title">远方 有一个地方 那里种有我们的梦想</h3>
+                <div class="am-gallery-desc">2375-09-26</div>
+            </a>
+        </div>
+      </li>
+      <li>
+        <div class="am-gallery-item">
+            <a href="http://s.amazeui.org/media/i/demos/bing-2.jpg" class="">
+              <img src="http://s.amazeui.org/media/i/demos/bing-2.jpg"  alt="某天 也许会相遇 相遇在这个好地方"/>
+                <h3 class="am-gallery-title">某天 也许会相遇 相遇在这个好地方</h3>
+                <div class="am-gallery-desc">2375-09-26</div>
+            </a>
+        </div>
+      </li>
+      <li>
+        <div class="am-gallery-item">
+            <a href="http://s.amazeui.org/media/i/demos/bing-3.jpg" class="">
+              <img src="http://s.amazeui.org/media/i/demos/bing-3.jpg"  alt="不要太担心 只因为我相信"/>
+                <h3 class="am-gallery-title">不要太担心 只因为我相信</h3>
+                <div class="am-gallery-desc">2375-09-26</div>
+            </a>
+        </div>
+      </li>
+      <li>
+        <div class="am-gallery-item">
+            <a href="http://s.amazeui.org/media/i/demos/bing-2.jpg" class="">
+              <img src="http://s.amazeui.org/media/i/demos/bing-2.jpg"  alt="某天 也许会相遇 相遇在这个好地方"/>
+                <h3 class="am-gallery-title">某天 也许会相遇 相遇在这个好地方</h3>
+                <div class="am-gallery-desc">2375-09-26</div>
+            </a>
+        </div>
+      </li>
+      <li>
+        <div class="am-gallery-item">
+            <a href="http://s.amazeui.org/media/i/demos/bing-4.jpg" class="">
+              <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg"  alt="终会走过这条遥远的道路"/>
+                <h3 class="am-gallery-title">终会走过这条遥远的道路</h3>
+                <div class="am-gallery-desc">2375-09-26</div>
+            </a>
+        </div>
+      </li>
+  </ul>
+
+
+  </div>
+</div>
+
+<div class="am-panel am-panel-default" id="team">
+  <div class="am-panel-hd">联系方式</div>
+  <div class="am-panel-bd">
+    <table class="am-table">
+    <thead>
+        <tr>
+            <th>姓名</th>
+            <th>学号</th>
+            <th>性别</th>
+            <th>生日</th>
+            <th>手机号</th>
+            <th>QQ号</th>
+            <th>现居地</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="am-active">
+            <td>明明子</td>
+            <td>20140000000</td>
+            <td>男</td>
+            <td>12.21</td>
+            <td>13222221111</td>
+            <td>111111</td>
+            <td>云南昆明</td>
+        </tr>
+        <tr>
+            <td>明明子</td>
+            <td>20140000000</td>
+            <td>男</td>
+            <td>12.21</td>
+            <td>13222221111</td>
+            <td>111111</td>
+            <td>云南昆明</td>
+        </tr>
+        <tr>
+             <td>明明子</td>
+            <td>20140000000</td>
+            <td>男</td>
+            <td>12.21</td>
+            <td>13222221111</td>
+            <td>111111</td>
+            <td>云南昆明</td>
+        </tr>
+        <tr>
+            <td>明明子</td>
+            <td>20140000000</td>
+            <td>男</td>
+            <td>12.21</td>
+            <td>13222221111</td>
+            <td>111111</td>
+            <td>云南昆明</td>
+        </tr>
+        <tr>
+             <td>明明子</td>
+            <td>20140000000</td>
+            <td>男</td>
+            <td>12.21</td>
+            <td>13222221111</td>
+            <td>111111</td>
+            <td>云南昆明</td>
+        </tr>
+    </tbody>
+</table>
+  </div>
+</div>
+
+                           
+                            
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+  <div id="am-footer-modal"
+       class="am-modal am-modal-no-btn am-switch-mode-m am-switch-mode-m-default">
+    <div class="am-modal-dialog">
+      <div class="am-modal-hd am-modal-footer-hd">
+        <a href="javascript:void(0)" data-dismiss="modal" class="am-close am-close-spin " data-am-modal-close>&times;</a>
+      </div>
+      <div class="am-modal-bd">
+          您正在浏览的是
+
+        <span class="am-switch-mode-owner">
+            一份问卷
+        </span>
+
+        <span class="am-switch-mode-slogan">
+              普通的毕业设计
+        </span>
+      </div>
+    </div>
+  </div>
+
+    <script src="assets/js/amazeui.min.js"></script>
+    <script src="assets/js/amazeui.datatables.min.js"></script>
+    <script src="assets/js/dataTables.responsive.min.js"></script>
+    <script src="assets/js/app.js"></script>
+
+</body>
+
+</html>
