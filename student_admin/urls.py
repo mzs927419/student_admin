@@ -16,6 +16,14 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from student import views
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', views.login_view),
+    url(r'^sign$', views.sign_view),
+    url(r'sign/save$', views.sign_save),
+    url(r'^getClass$', views.getClass),
+    url(r'login$', views.login),
+    url(r'^index$', views.indexView),
 ]
