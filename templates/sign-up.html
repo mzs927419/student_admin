@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+{% load staticfiles %}
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,15 +13,14 @@
     <link rel="icon" type="image/png" href="assets/i/favicon.png">
     <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
     <meta name="apple-mobile-web-app-title" content="Amaze UI" />
-    <link rel="stylesheet" href="assets/css/amazeui.min.css" />
-    <link rel="stylesheet" href="assets/css/amazeui.datatables.min.css" />
-    <link rel="stylesheet" href="assets/css/app.css">
-    <script src="assets/js/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="{% static 'css/amazeui.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/amazeui.datatables.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/app.css' %}" />
 
 </head>
 
 <body data-type="login">
-    <script src="assets/js/theme.js"></script>
     <div class="am-g tpl-g">
         <div class="tpl-login">
             <div class="tpl-login-content">
@@ -29,51 +28,68 @@
                 </div>
                 <div class="tpl-login-title">注册用户</div>
                 <span class="tpl-login-content-info">创建一个新的用户</span>
-                <form class="am-form tpl-form-line-form">
-                    <div class="am-form-group">
-                        <input type="text" class="tpl-form-input" id="user-name" placeholder="用户名">
+                <form id="sign-form" class="am-form tpl-form-line-form" action="sign/save" method="post">
+                    {% for foo in obj %}
+                        <div class="am-form-group">
+                            {{ foo }}
+                        </div>
+                    {% endfor %}
+                    <span class="am-text-warning">{{ psdError }}</span>
+                    <div class="am-form-group" id="doc-div-class">
+                        <select name="stu_class" id="doc-select-class">
+                            <option value=''>班级</option>
+                        </select>
+                        <span class="am-text-warning">{{ classError }}</span>
                     </div>
-                    <div class="am-form-group">
-                        <input type="text" class="tpl-form-input" id="user-name" placeholder="学号">
+                    <div class=" am-datepicker-date" data-am-datepicker="{format: 'dd-mm-yyyy'}">
+                        <p><input type="text" name="stu_Time" class="am-form-field" placeholder="入学时间" data-am-datepicker="{theme: 'success'}" readonly/></p>
+                        <span class="am-text-warning">{{ timeError }}</span>
                     </div>
-					<div class="am-form-group">
-                        <input type="text" class="tpl-form-input" id="user-name" placeholder="身份证号">
-
-                    </div>
-                    <div class="am-form-group">
-                        <input type="password" class="tpl-form-input" id="user-name" placeholder="请输入密码">
-                    </div>
-
-                    <div class="am-form-group">
-                        <input type="password" class="tpl-form-input" id="user-name" placeholder="再次输入密码">
-                    </div>
-
                     <div class="am-form-group tpl-login-remember-me">
                         <input id="remember-me" type="checkbox">
                         <label for="remember-me">
-       
-                        我已阅读并同意 <a href="javascript:;">《用户注册协议》</a> 
-                         </label>
-
+                            我已阅读并同意 <a href="javascript:;">《用户注册协议》</a>
+                        </label>
+                        <label style="float: right;">已有账号？<a href="/student">去登陆</a></label>
                     </div>
-
-
-
-
-
-
                     <div class="am-form-group">
-
-                        <button type="button" class="am-btn am-btn-primary  am-btn-block tpl-btn-bg-color-success  tpl-login-btn">提交</button>
-
+                        <input id="sign-submit" type="submit"class="am-btn am-btn-primary  am-btn-block tpl-btn-bg-color-success  tpl-login-btn" value="提交"/>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-    <script src="assets/js/amazeui.min.js"></script>
-    <script src="assets/js/app.js"></script>
-
 </body>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/theme.js' %}"></script>
+    <script src="{% static 'js/amazeui.min.js' %}"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+    <script type="application/javascript" charset="UTF-8">
+        $("#id_stu_collect").change(function () {
+            var val = $(this).val();
+            if(val != ''){
+                $.ajax({
+                    url : '/getClass',
+                    type : "POST",
+                    async : false,
+                    dataType : "json",
+                    data:{
+                        collectId:val,
+                    },
+                    success : function(data) {
+                        var temp = "";
+                        for (var i = 0;i<data.length;i++){
+                            temp += "<option value='"+data[i].class_id+"'>"+data[i].class_name+"</option>";
+                        }
+                        $("#doc-select-class").html("");
+                        $("#doc-select-class").append(temp);
+                        $("#doc-div-class").show();
+                    }
+			    });
+            }else{
+                $("#doc-div-class").hide();
+            }
+        });
 
+    </script>
 </html>
